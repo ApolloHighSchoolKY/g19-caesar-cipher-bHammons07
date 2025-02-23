@@ -22,17 +22,20 @@ public class CaesarCipher {
 
     public CaesarCipher(int num)
     {
+        alphabet = new char[26];
+        shifted = new char[26];
         shift = num;
     }
 
     public String encrypt(String message)
     {
         //look through alphabet
-        String crypt = "";
+        char crypt = ' ';
         //int pos = 0;
         for(int i = 0, o = 0; i < message.length() && o < alphabet.length; i++, o++)
         {
-            message.charAt(i) = alphabet[o];
+            alphabet[o] = message.charAt(i);
+            crypt = alphabet[o];
         }
 
         return "" + crypt;
@@ -42,11 +45,13 @@ public class CaesarCipher {
     {
         //look through shifted
         //for
-        for(int i = 0; i < shifted.length; i++)
+        char crypt = ' '; 
+        for(int i = 0, o = 0; i < message.length() && o < shifted.length; i++)
         {
-            
+            //shifted[o] = message.charAt(i);
+            crypt += message.charAt(i);
         }
-        return "" + message;
+        return "" + crypt;
     }
 
     public void shifter(int num)
